@@ -38,7 +38,7 @@ class Plot:
         plt.savefig(path, bbox_inches='tight', pad_inches=0.5, transparent=transparent)
 
     def __call__(self, title, z, cmap=cm.jet, linewidth=0):
-        self.fig = plt.figure(figsize=(15, 10), dpi=80,)
+        self.fig = plt.figure(figsize=(12, 8), dpi=80,)
         ax = self.fig.gca(projection='3d')
         ax.set_title(title)
         ax.set_xlabel(self.labels[0])
@@ -50,5 +50,4 @@ class Plot:
         ax.view_init(self.elev, self.azim)
         z = z.reshape(self.x.shape)
         ax.plot_surface(self.x, self.y, z, rstride=1, cstride=1, cmap=cmap, linewidth=linewidth)
-        #self.save(os.path.join('figure', '-'.join(title.lower().split())) + '.png')
 
